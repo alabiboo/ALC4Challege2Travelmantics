@@ -15,17 +15,12 @@ import android.view.MenuItem;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
-    public static ArrayList<TravelDeal> mDeals;
+    /*public static ArrayList<TravelDeal> mDeals;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
-    private ChildEventListener mChildListener;
+    private ChildEventListener mChildListener;*/
 
 
     @Override
@@ -42,6 +37,12 @@ public class ListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_activity_menu, menu);
+        MenuItem insertMenu = menu.findItem(R.id.insert_menu);
+        if (FirebaseUtil.isAdmin == true){
+            insertMenu.setVisible(true);
+        }else{
+            insertMenu.setVisible(false);
+        }
         return true;
     }
 
@@ -55,41 +56,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-/*
-        FirebaseUtil.openFbReference("alctraveldeal");
-        mFirebaseDatabase = FirebaseUtil.mFirebaseDatabase;
-        mDatabaseReference = FirebaseUtil.mDatabaseReference;
-
-        mChildListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                TextView tvDeals = (TextView)findViewById(R.id.tvDeals);
-                TravelDeal td = dataSnapshot.getValue(TravelDeal.class);
-                tvDeals.setText(tvDeals.getText() +"\n" +td.getTitle());
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        };
-        mDatabaseReference.addChildEventListener(mChildListener);*/
-
+        FirebaseUtil.openFbReference("alctraveldeal", this);
         RecyclerView rvDeals = (RecyclerView) findViewById(R.id.rvDeals);
         final DealAdapter adapter = new DealAdapter();
         rvDeals.setAdapter(adapter);
@@ -111,7 +78,7 @@ public class ListActivity extends AppCompatActivity {
                         .signOut(this)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             public void onComplete(@NonNull Task<Void> task) {
-                                Log.d("Logout", "User loged out");
+                                Log.d("Logout", "User logged out");
                                 FirebaseUtil.attachListener();
                             }
                         });
@@ -120,6 +87,11 @@ public class ListActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    public  void shoMenu(){
+        invalidateOptionsMenu();
     }
 
 }

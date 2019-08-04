@@ -20,7 +20,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_insert" />
+    <include layout="@layout/content_deal" />
 
 
 </android.support.design.widget.CoordinatorLayout>

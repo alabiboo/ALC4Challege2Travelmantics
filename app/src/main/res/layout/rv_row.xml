@@ -33,22 +33,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_standard"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageDeal"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        android:layout_marginLeft="@dimen/txt_margin_standard"  />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_standard"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
-        android:layout_marginRight="@dimen/txt_margin_standard"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/text_price"
-        android:textColor="@color/colorAccent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 </android.support.constraint.ConstraintLayout>
