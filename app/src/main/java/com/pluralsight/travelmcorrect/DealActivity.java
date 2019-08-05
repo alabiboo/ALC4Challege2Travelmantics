@@ -148,7 +148,7 @@ public class DealActivity extends AppCompatActivity {
     }
 
     private void clean() {
-        txtPrice.setText("");
+        txtTitle.setText("");
         txtDescription.setText("");
         txtPrice.setText("");
         txtTitle.requestFocus(); //??
