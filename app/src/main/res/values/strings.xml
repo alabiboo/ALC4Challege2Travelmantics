@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChallengeALC</string>
+    <string name="app_name">Travelmantics</string>
     <string name="title_hint">Deal Title</string>
     <string name="price_hint">Price (number only)</string>
     <string name="description_hint">Description</string>
