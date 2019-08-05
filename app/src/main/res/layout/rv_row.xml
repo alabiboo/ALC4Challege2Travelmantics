@@ -47,5 +47,5 @@
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/text_price"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription">
 </android.support.constraint.ConstraintLayout>
