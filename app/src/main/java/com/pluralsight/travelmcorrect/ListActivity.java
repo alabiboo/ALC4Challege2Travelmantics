@@ -3,6 +3,7 @@ package com.pluralsight.travelmcorrect;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +12,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class ListActivity extends AppCompatActivity {
+    private FloatingActionButton fabButton;
     /*public static ArrayList<TravelDeal> mDeals;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
@@ -29,6 +32,21 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+/*
+        fabButton = findViewById(R.id.floatingButton);
+        fabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListActivity.this, DealActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        if (FirebaseUtil.isAdmin){
+            fabButton.show();
+        }else {
+            fabButton.hide();
+        }*/
 
     }
 

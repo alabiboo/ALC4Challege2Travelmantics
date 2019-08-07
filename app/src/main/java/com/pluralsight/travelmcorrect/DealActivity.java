@@ -89,11 +89,11 @@ public class DealActivity extends AppCompatActivity {
             enableEditTexts(true);
             findViewById(R.id.btnImage).setEnabled(true);
         }else {
-
             menu.findItem(R.id.delete_menu).setVisible(false);
             menu.findItem(R.id.save_menu).setVisible(false);
             enableEditTexts(false);
-            findViewById(R.id.btnImage).setEnabled(false);
+            //findViewById(R.id.btnImage).setEnabled(false);
+            findViewById(R.id.btnImage).setVisibility(View.GONE);
         }
         return true;
     }
@@ -178,7 +178,9 @@ public class DealActivity extends AppCompatActivity {
 
     private void backToList() {
         Intent intent = new Intent(this, ListActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 
     private void saveDeal() {
@@ -196,7 +198,6 @@ public class DealActivity extends AppCompatActivity {
         txtTitle.setEnabled(isEnable);
         txtDescription.setEnabled(isEnable);
         txtPrice.setEnabled(isEnable);
-
     }
 
     private void showImage(String url){
@@ -205,6 +206,5 @@ public class DealActivity extends AppCompatActivity {
             Picasso.get().load(url).resize(width,width*2/3).centerCrop().into(imageView);
         }
     }
-
-
+    
 }
